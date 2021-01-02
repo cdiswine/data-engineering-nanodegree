@@ -26,5 +26,5 @@ class LoadFactOperator(BaseOperator):
 
     def execute(self, context):
         redshift_hook = PostgresHook(self.redshift_conn_id)
-        redshift_hook.run(str(self.sql_query))
+        redshift_hook.run(str(self.sql_query)
         #self.log.info('LoadFactOperator not implemented yet')

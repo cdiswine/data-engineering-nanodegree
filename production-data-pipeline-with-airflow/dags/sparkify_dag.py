@@ -106,21 +106,6 @@ load_artist_dimension_table_task_id='Load_artist_dim_table'
 load_artist_dimension_table = SubDagOperator(
     subdag=load_dimensional_tables_dag(
         parent_dag_name=dag_name,
-        task_id=load_artist_dimension_table_task_id,
-        redshift_conn_id="redshift",
-        aws_credentials_id="aws_credentials",
-        table="artist",
-        start_date=datetime(2018, 5, 1),
-        sql_query=SqlQueries.artist_table_insert,
-    ),
-    task_id=load_artist_dimension_table_task_id,
-    dag=dag,
-)
-
-load_time_dimension_table_task_id='Load_time_dim_table'
-load_time_dimension_table = SubDagOperator(
-    subdag=load_dimensional_tables_dag(
-        parent_dag_name=dag_name,
         task_id=load_time_dimension_table_task_id,
         redshift_conn_id="redshift",
         aws_credentials_id="aws_credentials",
